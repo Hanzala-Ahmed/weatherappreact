@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainBox {
+  background-image: url("./Images/mainBackground.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.detailMainBox {
+  /* background-color: aqua; */
+  width: 80%;
+  height: 90%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.detailMainBox1 {
+  /* background-image: url("./Images/clouds.jpg"); */
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 70%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+}
+
+.detailMainBox2 {
+  background-color: #333B4A;
+  width: 100%;
+  height: 30%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.detailMainBox2 .todayWeather {
+  /* background-color: white; */
+  width: 18%;
+  height: 80%;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.detailMainBox2 .todayWeather img {
+  width: 70px;
+  height: 70px;
+}
+
+.detailMainBox2 .nextDayWeather {
+  /* background-color: white; */
+  width: 12%;
+  height: 80%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dayMain {
+  background-color: rgb(26, 24, 24);
+  width: fit-content;
+  height: 30px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 12px;
+  color: whitesmoke;
+}
+
+.day {
+  background-color: rgb(26, 24, 24);
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 12px;
+  color: whitesmoke;
+  font-size: 12px;
+}
+
+.headClass {
+  font-size: 20px;
+}
+
+.dayAndTemp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailMainBox1 .timeBox {
+  /* background-color: aqua; */
+  width: 60%;
+  height: 80%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.detailMainBox1 .timeBox .timeBox1{
+  /* background-color: orange; */
+  width: 80%;
+  height: 13%;
+  color: white;
+  margin: 0px 0px 18px 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.detailMainBox1 .timeBox .timeBox1 input {
+  background-color: #333B4A;
+  width: 80%;
+  height: 100%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 0px 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.detailMainBox1 .timeBox .timeBox1 input::placeholder {
+  color: rgb(212, 212, 212);
+}
+
+.detailMainBox1 .timeBox .timeBox1 button {
+  background-color: #333B4A;
+  width: 100px;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  /* margin-left: 10px; */
+}
+
+.detailMainBox1 .cityBox {
+  /* background-color: aqua; */
+  width: 20%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.detailMainBox1 .timeBox h1 span {
+  font-size: 12px;
+}
+
+.detailMainBox1 .timeBox .dayTime {
+  margin-top: 6px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.detailMainBox1 .cityBox .country{
+  /* background-color: #333B4A; */
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
