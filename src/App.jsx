@@ -1,5 +1,4 @@
 import './App.css';
-// import Forecast from './Components/Forecast';
 import Time from './Components/Time';
 
 function App() {
@@ -8,8 +7,8 @@ function App() {
     <div className='mainBox'>
         <div className='detailMainBox'>
             <Time />
-            {/* <Forecast /> */}
         </div>
+
       </div>
     </>
   );

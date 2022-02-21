@@ -12,7 +12,7 @@ const TodayWeather = (props) => {
             <h1 className={props.headClass}>{temp}<sup style={{fontWeight:"100"}}>o</sup>C</h1>
             <span>{props.condition}</span>
         </div>
-        <div className="">
+        <div className='weatherImg'>
           <img src={props.image} alt="" />
         </div>
       </div>

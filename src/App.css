@@ -23,7 +23,6 @@
 }
 
 .detailMainBox1 {
-  /* background-image: url("./Images/clouds.jpg"); */
   background-size: cover;
   background-position: center center;
   width: 100%;
@@ -54,6 +53,11 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.detailMainBox2 .todayWeather .weatherImg {
+  /* background-color: aqua; */
+  margin-left: 10px;
 }
 
 .detailMainBox2 .todayWeather img {
@@ -125,6 +129,13 @@
   justify-content: space-between;
 }
 
+.detailMainBox1 .timeBox .timeBox2 {
+  background-color: rgb(74, 80, 80, 0.2);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .detailMainBox1 .timeBox .timeBox1 input {
   background-color: #333B4A;
   width: 80%;
@@ -150,7 +161,7 @@
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  /* margin-left: 10px; */
+  margin-left: 10px;
 }
 
 .detailMainBox1 .cityBox {

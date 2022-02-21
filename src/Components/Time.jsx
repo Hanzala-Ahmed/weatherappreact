@@ -5,8 +5,8 @@ import clouds from "../Images/clouds.jpg";
 import clear from "../Images/clear.jpg";
 import smoke from "../Images/smoke.jpg";
 import rain from "../Images/rain.jpg";
-import moon from "../Images/moon.png";
-import haze from "../Images/haze.jpg"
+// import moon from "../Images/moon.png";
+import haze from "../Images/haze.jpg";
 
 const Time = () => {
   // const newDate = new Date();
@@ -80,20 +80,46 @@ const Time = () => {
 
   const [weatherdata, setWeatherData] = useState("weatherdata");
   const [cityName, setCityName] = useState("");
-  const [city, setCity] = useState("Karachi");
+  const [city, setCity] = useState("new york");
   const [weatherCondition, setWeatherCondition] = useState("");
   const [weatherImg, setWeatherImg] = useState("");
   const [dayImg, setDayImg] = useState("");
+  const [location, setLocation] = useState({});
   const now = new Date().toTimeString();
   const nowHour = now.slice(0, 2);
+  // console.log(nowHour);
 
   useEffect(() => {
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            setLocation(position);
+            setCity("");
+            console.log(position.coords.longitude);
+            console.log(position.coords.latitude);
+          },
+          function (error) {
+            console.log("error", error);
+          }
+        );
+      }
+    }
+    getLocation();
+  }, []);
+
+  useEffect(() => {
+    let searchQuery =
+      location && location.coords
+        ? `lat=${location.coords.latitude}&lon=${location.coords.longitude}`
+        : `q=${cityName ? cityName : city}`;
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName ? cityName : "Karachi"}&appid=094d4e13268cafd2cfb1c5355a7285b3`
+      `https://api.openweathermap.org/data/2.5/weather?${searchQuery}&appid=094d4e13268cafd2cfb1c5355a7285b3&units=metric`
     )
       .then((response) => response.json())
       .then((result) => {
         setWeatherData(result);
+        console.log(weatherdata);
         setWeatherCondition(result.weather[0].main);
       })
       .catch((error) => {
@@ -104,38 +130,23 @@ const Time = () => {
   useEffect(() => {
     if (weatherCondition == "Smoke") {
       setWeatherImg(smoke);
-    }
-    if (weatherCondition == "Clear") {
+    } else if (weatherCondition == "Clear") {
       setWeatherImg(clear);
-    }
-    if (weatherCondition == "Rain") {
+    } else if (weatherCondition == "Rain") {
       setWeatherImg(rain);
-    }
-    if (weatherCondition == "Clouds") {
+    } else if (weatherCondition == "Clouds") {
       setWeatherImg(clouds);
-    }
-    if (weatherCondition == "Haze") {
+    } else if (weatherCondition == "Haze") {
       setWeatherImg(haze);
-    }
-    else {
-      console.log("error");
-    }
-    if (nowHour >= "19" && nowHour <= "6") {
-      setDayImg(moon);
-      console.log("moon Image");
     } else {
-      setDayImg(sun);
-      console.log("sun Image");
+      console.log("error");
     }
   }, [weatherCondition]);
 
   const searchCity = (e) => {
     setCity(cityName);
-    // console.log(cityName);
+    setLocation({});
   };
-  // console.log(weatherdata);
-  console.log(weatherCondition);
-  console.log(dayImg);
   return (
     <>
       <div
@@ -174,7 +185,7 @@ const Time = () => {
         <TodayWeather
           celcius={weatherdata.main && weatherdata.main.temp}
           className="todayWeather"
-          image={dayImg}
+          image={sun}
           dayClass="dayMain"
           condition={weatherCondition}
         />
